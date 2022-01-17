@@ -1,0 +1,52 @@
+.button-arrow {
+  border: none;
+  background-color: transparent;
+  appearance: none;
+  cursor: pointer;
+  position: relative;
+  width: 144px;
+
+  // @include font($poppins, 16px, 21px, 400, normal);
+  // color: $main-white;
+
+  &::before {
+    content: "";
+    position: absolute;
+    // top: 11px;
+    // right: 0;
+    width: 29px;
+    height: 1px;
+    // background-color: $main-white;
+    display: block;
+  }
+
+  span::after,
+  span::before {
+    content: '';
+    position: absolute;
+    width: 7.4px;
+    height: 1px;
+    right: -1px;
+    // background-color: $main-white;
+  }
+
+  span::after {
+    // top: 9px;
+    transform: rotate(36deg);
+  }
+
+  span::before {
+    // top: 13px;
+    transform: rotate(-36deg);
+  }
+
+  &:hover,
+  &:focus-visible {
+    transition: $trans--300;
+    // transform: translateX(8px) scale(0.9);
+  }
+
+  &:active {
+    opacity: 0.7;
+  }
+}

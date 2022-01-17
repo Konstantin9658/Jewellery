@@ -1,0 +1,16 @@
+.modal {
+  margin: 0 auto;
+  display: flex;
+  flex-direction: column;
+  width: 490px;
+  height: auto;
+  background-color: #00b2ff;
+  padding: 33px 39px 36px;
+  animation: bounce .6s;
+  position: fixed;
+  top: 5%;
+  right: 0;
+  bottom: 5%;
+  left: 0;
+  z-index: 50;
+}

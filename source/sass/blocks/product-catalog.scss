@@ -1,0 +1,269 @@
+.product-catalog__control {
+  @include flex-center;
+  flex-flow: column wrap;
+  position: relative;
+  margin-top: 120px;
+
+  @media (max-width: $tablet-width) {
+    margin-top: 70px;
+  }
+
+  @media (max-width: $mobile-width) {
+    margin-top: 60px;
+  }
+
+  h2 {
+    @include font($cormorant, 34px, 44px, 700, normal);
+    color: $main-black;
+    margin: 0;
+    padding-bottom: 23px;
+
+    @media (max-width: $tablet-width) {
+      padding-bottom: 19px;
+    }
+  }
+}
+
+.product-catalog__control-btn {
+  border: none;
+  background-color: transparent;
+  position: absolute;
+  cursor: pointer;
+  width: 29px;
+  height: 50px;
+
+  &:hover,
+  &:focus-visible {
+    transition: $trans--300;
+    transform: scale(0.7);
+  }
+
+  @media (max-width: $tablet-width) {
+    width: 36px;
+  }
+
+  @media (max-width: $mobile-width) {
+    display: none;
+  }
+
+  &--left {
+    left: 0;
+    top: 23px;
+
+    @media (max-width: $tablet-width) {
+      left: 44px;
+    }
+  }
+
+  &--right {
+    right: 0;
+    top: 24px;
+
+    @media (max-width: $tablet-width) {
+      right: 44px;
+      top: 20px;
+    }
+  }
+
+  &--left::after,
+  &--right::after {
+    position: absolute;
+    content: url("../img/arrow.svg");
+
+    @media (max-width: $tablet-width) {
+      content: url("../img/arrow-big.svg");
+    }
+  }
+
+  &--left::after {
+    left: -1px;
+    top: 20px;
+
+    @media (max-width: $tablet-width) {
+      left: 0px;
+      top: 18px;
+    }
+  }
+
+  &--right::after {
+    transform: rotate(180deg);
+    right: -1px;
+    top: 17px;
+
+    @media (max-width: $tablet-width) {
+      right: 0;
+      top: 18px;
+    }
+  }
+}
+
+.product-catalog__link {
+  @include font($poppins, 16px, 21px, 500, normal);
+  color: $main-black;
+  border-bottom: 1px solid $dark-orange;
+  transition: $trans--300;
+
+  @media (max-width: $tablet-width) {
+    padding-bottom: 4px;
+  }
+
+  &:hover,
+  &:focus-visible {
+    color: $dark-orange;
+  }
+
+  &:active {
+    opacity: 0.7;
+  }
+}
+
+.product-catalog__cards {
+  display: flex;
+  width: 1190px;
+  margin: 30px auto 0;
+  padding: 30px 10px 0;
+  overflow: hidden;
+
+  @media (min-width: $desktop-width) and (max-width: 1365px) {
+    width: 880px;
+  }
+
+  @media (max-width: $tablet-width) {
+    width: 678px;
+    padding: 10px 0;
+    margin-top: 40px;
+  }
+
+  @media (max-width: $mobile-width) {
+    width: 290px;
+    margin-top: 30px;
+  }
+}
+
+.product-catalog__card {
+  min-width: 270px;
+  min-height: 284px;
+  @include flex-center;
+  flex-flow: column wrap;
+  cursor: pointer;
+  margin-right: 30px;
+
+  @media (max-width: $tablet-width) {
+    min-width: 324px;
+  }
+
+  @media (max-width: $mobile-width) {
+    min-width: 130px;
+    min-height: 240px;
+    justify-content: flex-start;
+  }
+
+  img {
+    @media (max-width: $tablet-width) {
+      min-width: 324px;
+      height: 340px;
+    }
+
+    @media (max-width: $mobile-width) {
+      min-width: 130px;
+      height: 136px;
+    }
+  }
+
+  &:hover img,
+  &:focus-visible img {
+    transition: $trans--300;
+    transform: scale(1.05);
+
+    @media (max-width: $tablet-width) {
+      transform: scale(1.02);
+    }
+  }
+
+  &:hover a,
+  &:focus-visible a {
+    transition: $trans--300;
+    color: $dark-orange;
+  }
+}
+
+.product-catalog__card-link {
+  @include font($poppins, 16px, 21px, 500, normal);
+  color: $main-black;
+  text-align: center;
+  margin-top: 21px;
+
+  @media (max-width: $mobile-width) {
+    margin-top: 16px;
+  }
+
+  span {
+    @include font($poppins, 14px, 18px, 700, normal);
+    margin-top: 6px;
+    display: block;
+  }
+}
+
+.product-catalog__pagination-list {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+  width: 60px;
+  margin: 52px auto;
+  overflow: hidden;
+  padding-left: 6px;
+
+  @media (max-width: $tablet-width) {
+    margin-top: 30px;
+    width: 130px;
+  }
+
+  @media (max-width: $mobile-width) {
+    display: none;
+  }
+}
+
+.product-catalog__pagination-item {
+  @include font($poppins, 16px, 21px, 500, normal);
+  margin-right: 12px;
+
+  @media (max-width: $tablet-width) {
+    margin-right: 13px;
+  }
+
+  a {
+    color: $dark-gray;
+  }
+
+  &--active a {
+    color: $main-black;
+  }
+
+  &:hover a,
+  &:focus-visible a {
+    transition: $trans--300;
+    color: $dark-orange;
+  }
+
+  &:active {
+    opacity: 0.7;
+  }
+}
+
+.product-catalog__page-number {
+  display: none;
+
+  @media (max-width: $mobile-width) {
+    display: flex;
+    justify-content: center;
+  }
+
+  pre {
+    @include font($poppins, 16px, 21px, 500, normal);
+    color: $main-black;
+    margin: 0;
+  }
+}

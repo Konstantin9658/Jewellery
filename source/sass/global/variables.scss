@@ -1,0 +1,34 @@
+// Color
+
+$main-black: #1d1613;
+$main-white: #ffffff;
+$dark-gray: #9b9997;
+$light-gray: #f0eae4;
+$header-border-color: #f6f5f4;
+$dark-orange: #a87b62;
+
+
+// Gradient
+
+$header-gradient: linear-gradient(90deg, $dark-orange 0%,  $dark-orange 100%);
+
+// Viewports
+
+$min-width: 320px;
+$mobile-width: 767px;
+$tablet-width: 1023px;
+$desktop-width: 1024px;
+
+//fonts
+
+$poppins: 'Poppins', 'Arial', sans-serif;
+$cormorant: 'Cormorant Garamond', 'Georgia', serif;
+
+//transition
+
+$trans--300:  0.3s ease-in-out;
+
+//retina
+
+$retina-dpi: 144dpi;
+$retina-dppx: 1.5dppx;
