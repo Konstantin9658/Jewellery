@@ -28,8 +28,8 @@
             <use xlink:href="img/sprite.svg#icon-logo"></use>
           </svg>
         </a>
-        <ul class="header__list">
-          <li><a href="#">Login</a></li>
+        <ul class="header__account-list">
+          <li class="header__login"><a href="#">Login</a></li>
           <li><a href="#">Cart <span>0</span></a></li>
         </ul>
         <button class="header__nav-btn header__nav-btn--burger"><span></span></button>
@@ -39,11 +39,17 @@
       </div>
       <nav class="header__nav-menu">
         <ul class="header__nav-list">
-          <li><a href="#">What’s new</a></li>
-          <li><a href="#">Chokers</a></li>
-          <li><a href="#">Necklaces</a></li>
-          <li><a href="#">Rings</a></li>
-          <li><a href="#">Earrings</a></li>
+          <li class="header__nav-item"><a href="#">What’s new</a></li>
+          <li class="header__nav-item"><a href="#">Chokers</a></li>
+          <li class="header__nav-item"><a href="#">Necklaces</a></li>
+          <li class="header__nav-item"><a href="#">Rings</a></li>
+          <li class="header__nav-item"><a href="#">Earrings</a></li>
+        </ul>
+        <ul class="header__nav-list-mobile">
+          <li class="header__nav-item-mobile"><a href="#">About CH</a></li>
+          <li class="header__nav-item-mobile"><a href="#">Stores & Hours</a></li>
+          <li class="header__nav-item-mobile"><a href="#">Contact Us</a></li>
+          <li class="header__nav-item-mobile header__nav-item-mobile--login"><a id="login" href="login.html">Login</a></li>
         </ul>
       </nav>
     </div>
@@ -407,5 +413,6 @@
       </section>
     </div>
   </footer>
+  <script src="js/main.js"></script>
 </body>
 </html>

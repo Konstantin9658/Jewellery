@@ -7,5 +7,9 @@
   display: flex;
   flex-direction: column;
   height: 100%;
-  background-color: white;
+  background-color: $main-white;
+
+  &--hidden {
+    overflow: hidden;
+  }
 }

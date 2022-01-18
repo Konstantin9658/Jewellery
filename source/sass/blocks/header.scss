@@ -66,8 +66,9 @@
   }
 }
 
-.header__list,
-.header__nav-list {
+.header__account-list,
+.header__nav-list,
+.header__nav-list-mobile {
   padding: 0;
   margin: 0;
   list-style: none;
@@ -84,16 +85,28 @@
     background-size: 0% 1px;
     transition: $trans--300;
 
+    @media (max-width: $tablet-width) {
+      color: $main-white;
+    }
+
     &:hover,
     &:focus-visible {
       color: $dark-orange;
       background-size: 100% 1px;
+
+      @media (max-width: $tablet-width) {
+        color: $main-black;
+      }
     }
 
     &:active {
       opacity: 0.7;
     }
   }
+}
+
+.header__nav-list-mobile {
+  display: none;
 }
 
 .header__icon-cart {
@@ -105,7 +118,7 @@
   }
 }
 
-.header__list {
+.header__account-list {
   margin-bottom: 8px;
 
   @media (max-width: $tablet-width) {
@@ -122,18 +135,81 @@
 .header__nav-menu {
   @media (max-width: $tablet-width) {
     display: none;
+
+    &--show {
+      display: block;
+      width: 100%;
+      padding: 0 45px;
+      animation: bounce .6s;
+      background-color: $dark-orange;
+      height: 778px;
+      position: absolute;
+      top: 0;
+      left: 0;
+      z-index: 2;
+
+      @media (max-width: $mobile-width) {
+        padding: 0 15px;
+      }
+
+      .header__nav-list,
+      .header__nav-list-mobile {
+        display: flex;
+        flex-flow: column wrap;
+      }
+    }
   }
 }
 
-.header__nav-list {
+.header__nav-list,
+.header__nav-list-mobile {
   justify-content: center;
   margin-top: 18px;
   margin-bottom: 19px;
   margin-left: 43px;
 
-  li {
-    @include font($poppins, 16px, 24px, 500, normal);
-    margin-right: 35px;
+  @media (max-width: $tablet-width) {
+    margin-left: 0;
+  }
+}
+
+.header__nav-list {
+
+  @media (max-width: $tablet-width) {
+  margin-top: 223px;
+  margin-bottom: 0;
+  }
+}
+
+.header__nav-item {
+  @include font($poppins, 16px, 24px, 500, normal);
+  margin-right: 35px;
+
+  @media (max-width: $tablet-width) {
+    @include resize-txt(24px, 36px);
+    padding-bottom: 21px;
+  }
+}
+
+.header__nav-item-mobile {
+
+  @media (max-width: $tablet-width) {
+    @include font($poppins, 18px, 23px, 500, normal);
+    padding-bottom: 20px;
+
+    &--login {
+      padding-top: 25px;
+
+      a {
+        color: $main-white;
+      }
+    }
+  }
+
+  a {
+    @media (max-width: $tablet-width) {
+      color: rgba($main-white, 0.75);
+    }
   }
 }
 
@@ -308,14 +384,14 @@
 // Кнопка закрытия
 .header__nav-btn--closed {
   background-color: transparent;
-  position: fixed;
+  // position: fixed;
 
   &:hover span::after,
   &:focus-visible span::after,
   &:hover span::before,
   &:focus-visible span::before {
     transition: $trans--300;
-    background-color: $dark-orange;
+    background-color: $main-black;
   }
 
   &:active {
@@ -328,7 +404,7 @@
     position: absolute;
     width: 31px;
     height: 2px;
-    background-color: $main-black;
+    background-color: $main-white;
   }
 
   span::before {

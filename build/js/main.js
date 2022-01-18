@@ -1,6 +1,24 @@
 'use strict';
 (function () {
 
+  // MENU
+
+  const header = document.querySelector('.header');
+  const btnMenu = header.querySelector('.header__nav-btn');
+  const menu = header.querySelector('.header__nav-menu');
+
+  btnMenu.addEventListener('click', () => {
+    if (btnMenu.classList.contains('header__nav-btn--burger')) {
+      btnMenu.classList.remove('header__nav-btn--burger');
+      btnMenu.classList.add('header__nav-btn--closed');
+      menu.classList.add('header__nav-menu--show');
+    } else {
+      btnMenu.classList.remove('header__nav-btn--closed');
+      menu.classList.remove('header__nav-menu--show');
+      btnMenu.classList.add('header__nav-btn--burger');
+    }
+  })
+
   // POPUP
 
   const formTemplate = document.querySelector('#popup').content.querySelector('.modal');
