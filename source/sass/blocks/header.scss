@@ -9,7 +9,9 @@
   margin-bottom: 8px;
 
   @media (max-width: $tablet-width) {
-    display: none;
+    visibility: hidden;
+    width: 0;
+    height: 0;
   }
 
   input {
@@ -20,9 +22,14 @@
       @include font($poppins, 14px, 21px, 500, normal);
       padding-left: 10px;
       transition: $trans--300;
+
+      @media (max-width: $tablet-width) {
+        color: transparent;
+      }
     }
 
     &:hover {
+
       &::placeholder {
         color: $main-black;
       }
@@ -32,8 +39,10 @@
   svg {
     display: inline-block;
     vertical-align: baseline;
-
     cursor: pointer;
+    filter: brightness(0) invert(0);
+    width: 14px;
+    height: 14px;
   }
 }
 
@@ -46,6 +55,78 @@
 
   @media (max-width: $tablet-width) {
     min-height: 126px;
+
+    &--open-menu,
+    &--no-js {
+
+      .header__search-field {
+        visibility: visible;
+        transition: $trans--300;
+        display: flex;
+        position: absolute;
+        z-index: 3;
+        width: 100%;
+        top: 136px;
+
+        label {
+          position: absolute;
+          top: 12px;
+          left: 12px;
+
+          svg {
+            width: 16px;
+            height: 16px;
+            filter: brightness(0) invert(100%);
+          }
+        }
+
+        input {
+          width: 100%;
+          height: 40px;
+          background-color: rgba($main-white, 0.15);
+          border-radius: 21px;
+          padding-left: 40px;
+          color: $main-white;
+          @include font($poppins, 18px, 28px, 500, normal);
+
+          &::placeholder {
+            color: transparent;
+          }
+        }
+
+        &:hover,
+        &:focus-visible {
+
+          input {
+            transition: $trans--300;
+            background-color: rgba($main-white, 0.25);
+          }
+
+          svg {
+            transition: $trans--300;
+            filter: brightness(0) invert(0);
+          }
+        }
+      }
+
+      .header__logo {
+        --open-menu: #ffffff;
+        z-index: 3;
+      }
+
+      .header__icon-cart {
+        z-index: 3;
+        transition: $trans--300;
+        filter: brightness(0) invert(100%);
+      }
+    }
+
+    &--no-js {
+
+      .header__nav-btn {
+        display: none;
+      }
+    }
   }
 
   @media (max-width: $mobile-width) {
@@ -115,6 +196,17 @@
 
   @media (max-width: $tablet-width) {
     display: block;
+    cursor: pointer;
+
+    &:hover,
+    &:focus-visible {
+      transition: $trans--300;
+      filter: brightness(0) invert(0);
+    }
+
+    &:active {
+      opacity: 0.3;
+    }
   }
 }
 
@@ -136,7 +228,8 @@
   @media (max-width: $tablet-width) {
     display: none;
 
-    &--show {
+    &--show,
+    &--no-js {
       display: block;
       width: 100%;
       padding: 0 45px;
@@ -147,6 +240,7 @@
       top: 0;
       left: 0;
       z-index: 2;
+      overflow: auto;
 
       @media (max-width: $mobile-width) {
         padding: 0 15px;
@@ -158,6 +252,10 @@
         flex-flow: column wrap;
       }
     }
+
+    // &--no-js {
+    //   position: relative;
+    // }
   }
 }
 
@@ -249,6 +347,11 @@
   }
 
   @media (max-width: $tablet-width) {
+
+    &--no-js {
+      margin-top: 652px;
+    }
+
     background-image: url("../img/intro-tablet.jpg");
 
     @include retina {
