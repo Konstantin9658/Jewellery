@@ -1,0 +1,105 @@
+.button {
+  @include flex-center;
+  background-color: $dark-orange;
+  color: $main-white;
+  cursor: pointer;
+  border: none;
+  appearance: none;
+  padding: 0;
+
+  width: 100%;
+  min-height: 68px;
+
+  @include font($poppins, 16px, 21px, 500, normal);
+
+  &--burger {
+    span,
+    span::after,
+    span::before {
+      content: "";
+      width: 25px;
+      height: 2px;
+      position: absolute;
+      background-color: $main-black;
+    }
+
+    span {
+      top: 26px;
+      left: 12.5px;
+    }
+
+    span::after {
+      top: -7.6px;
+      left: 0;
+    }
+
+    span::before {
+      top: 7.5px;
+      left: 0;
+    }
+
+    &:hover span,
+    &:focus-visible span,
+    &:hover span::after,
+    &:focus-visible span::after,
+    &:hover span::before,
+    &:focus-visible span::before {
+      transition: $trans--300;
+      background-color: $dark-orange;
+    }
+
+    &:active {
+      transition: $trans--300;
+      opacity: 0.5;
+    }
+  }
+
+  &--closed {
+    background-color: transparent;
+    position: absolute;
+
+    &:hover span::after,
+    &:focus-visible span::after,
+    &:hover span::before,
+    &:focus-visible span::before {
+      transition: $trans--300;
+      background-color: $main-black;
+    }
+
+    &:active {
+      opacity: 0.3;
+    }
+
+    span::after,
+    span::before {
+      content: "";
+      position: absolute;
+      width: 31px;
+      height: 2px;
+      background-color: $main-white;
+    }
+
+    span::before {
+      top: 25px;
+      left: 9.5px;
+      transform: rotate(45deg);
+    }
+
+    span::after {
+      top: 25px;
+      left: 9.5px;
+      transform: rotate(-45deg);
+    }
+  }
+
+  &:hover,
+  &:focus-visible {
+    transition: $trans--300;
+    opacity: 0.7;
+    color: $main-black;
+  }
+
+  &:active {
+    opacity: 0.5;
+  }
+}

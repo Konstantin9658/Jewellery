@@ -1,0 +1,55 @@
+.header-catalog__intro {
+  height: 261px;
+  background-image: url("../img/intro-catalog-desktop.jpg");
+  background-position: center;
+
+  @include retina {
+    background-image: url("../img/intro-catalog-desktop@2x.jpg");
+  }
+
+  @media (max-width: $tablet-width) {
+    background-image: url("../img/intro-catalog-tablet.jpg");
+
+    @include retina {
+      background-image: url("../img/intro-catalog-tablet@2x.jpg");
+    }
+  }
+
+  @media (max-width: $mobile-width) {
+    background-image: url("../img/intro-catalog-mobile.jpg");
+
+    @include retina {
+      background-image: url("../img/intro-catalog-mobile@2x.jpg");
+    }
+  }
+}
+
+.header-catalog__slogan {
+  width: 488px;
+
+  @media (max-width: $tablet-width) {
+    transform: none;
+  }
+
+  @media (max-width: $mobile-width) {
+    width: 100%;
+    padding: 0 12px;
+  }
+
+  h3 {
+    @include font($cormorant, 34px, 34px, 700, normal);
+    letter-spacing: 0;
+
+    @media (max-width: $mobile-width) {
+      @include resize-txt(34px, 44px);
+    }
+  }
+
+  p {
+    @include font($cormorant, 22px, 40px, 500, italic);
+
+    @media (max-width: $mobile-width) {
+      @include resize-txt(22px, 29px);
+    }
+  }
+}

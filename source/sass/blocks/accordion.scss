@@ -1,6 +1,6 @@
 .accordion--no-js {
 
-  button {
+  .accordion__toggle {
     display: none;
   }
 
@@ -11,42 +11,15 @@
 
 .accordion__item {
 
-  p {
+  p,
+  .accordion__item-content {
     display: none;
   }
 
-  button {
-
-    &::after {
-      content: "";
-      position: absolute;
-      width: 12px;
-      height: 12px;
-      border-top: 1px solid $dark-orange;
-      border-right: 1px solid $dark-orange;
-      transform: rotate(135deg);
-      top: 43px;
-      right: 50px;
-
-      @media (max-width: $tablet-width) {
-        width: 17px;
-        height: 17px;
-        top: 41px;
-        right: 52px;
-      }
-
-      @media (max-width: $mobile-width) {
-        width: 15px;
-        height: 15px;
-        right: 26px;
-        top: 17px;
-      }
-    }
-  }
-
   &--show {
-    p {
-      display: block;
+    p,
+    .accordion__item-content {
+      display: flex;
     }
 
     button {
@@ -63,6 +36,41 @@
           top: 27px;
         }
       }
+    }
+  }
+}
+
+.accordion__item-content {
+  flex-flow: column wrap;
+  margin-top: 24px;
+  padding-left: 35px;
+}
+
+.accordion__toggle {
+
+  &::after {
+    content: "";
+    position: absolute;
+    width: 12px;
+    height: 12px;
+    border-top: 1px solid $dark-orange;
+    border-right: 1px solid $dark-orange;
+    transform: rotate(135deg);
+    top: 43px;
+    right: 50px;
+
+    @media (max-width: $tablet-width) {
+      width: 17px;
+      height: 17px;
+      top: 41px;
+      right: 52px;
+    }
+
+    @media (max-width: $mobile-width) {
+      width: 15px;
+      height: 15px;
+      right: 26px;
+      top: 17px;
     }
   }
 }

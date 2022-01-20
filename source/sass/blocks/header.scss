@@ -3,6 +3,28 @@
   overflow: hidden;
   display: flex;
   flex-flow: column wrap;
+
+  &--login {
+    background-color: $light-gray;
+
+    .header__logo {
+      pointer-events: visible;
+    }
+
+    .header__logo-img {
+      margin-right: 0;
+      --open-menu: #a87b62;
+    }
+
+    .header__wrapper {
+      width: max-content;
+      margin: 0 auto;
+
+      &::after {
+        border: none;
+      }
+    }
+  }
 }
 
 .header__search-field {
@@ -252,10 +274,6 @@
         flex-flow: column wrap;
       }
     }
-
-    // &--no-js {
-    //   position: relative;
-    // }
   }
 }
 
@@ -315,27 +333,26 @@
   flex-grow: 1;
   @include flex-center;
   pointer-events: none;
+}
 
-  svg {
-    margin-right: 36px;
-    margin-top: 13px;
+.header__logo-img {
+  margin-right: 36px;
+  margin-top: 13px;
 
-    @media (max-width: $tablet-width) {
-      margin-right: -19px;
-      margin-top: 0;
-    }
+  @media (max-width: $tablet-width) {
+    margin-right: -19px;
+    margin-top: 0;
+  }
 
-    @media (max-width: $mobile-width) {
-      width: 52px;
-      height: 52px;
-    }
+  @media (max-width: $mobile-width) {
+    width: 52px;
+    height: 52px;
   }
 }
 
 .header__intro {
   display: flex;
   align-items: center;
-
   height: 463px;
   background-color: $dark-orange;
   background-image: url("../img/intro-desktop.jpg");
@@ -347,15 +364,14 @@
   }
 
   @media (max-width: $tablet-width) {
-
-    &--no-js {
-      margin-top: 652px;
-    }
-
     background-image: url("../img/intro-tablet.jpg");
 
     @include retina {
       background-image: url("../img/intro-tablet@2x.jpg");
+    }
+
+    &--no-js {
+      margin-top: 652px;
     }
   }
 
@@ -411,6 +427,12 @@
     @media (max-width: $mobile-width) {
       @include resize-txt(34px, 37px);
     }
+
+    a {
+      color: $main-white;
+      text-decoration: underline;
+      padding-left: 10px;
+    }
   }
 }
 
@@ -437,88 +459,5 @@
 
   &--nojs {
     display: none;
-  }
-}
-
-// Кнопка бургера
-.header__nav-btn--burger {
-
-  span,
-  span::after,
-  span::before {
-    content: "";
-    width: 25px;
-    height: 2px;
-    position: absolute;
-    background-color: $main-black;
-  }
-
-  span {
-    top: 26px;
-    left: 12.5px;
-  }
-
-  span::after {
-    top: -7.6px;
-    left: 0;
-  }
-
-  span::before {
-    top: 7.5px;
-    left: 0;
-  }
-
-  &:hover span,
-  &:focus-visible span,
-  &:hover span::after,
-  &:focus-visible span::after,
-  &:hover span::before,
-  &:focus-visible span::before {
-    transition: $trans--300;
-    background-color: $dark-orange;
-  }
-
-  &:active {
-    transition: $trans--300;
-    opacity: 0.5;
-  }
-}
-
-// Кнопка закрытия
-.header__nav-btn--closed {
-  background-color: transparent;
-  // position: fixed;
-
-  &:hover span::after,
-  &:focus-visible span::after,
-  &:hover span::before,
-  &:focus-visible span::before {
-    transition: $trans--300;
-    background-color: $main-black;
-  }
-
-  &:active {
-    opacity: 0.3;
-  }
-
-  span::after,
-  span::before {
-    content: "";
-    position: absolute;
-    width: 31px;
-    height: 2px;
-    background-color: $main-white;
-  }
-
-  span::before {
-    top: 25px;
-    left: 9.5px;
-    transform: rotate(45deg);
-  }
-
-  span::after {
-    top: 25px;
-    left: 9.5px;
-    transform: rotate(-45deg);
   }
 }
