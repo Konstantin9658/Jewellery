@@ -1,16 +1,50 @@
 .button {
   @include flex-center;
-  background-color: $dark-orange;
-  color: $main-white;
   cursor: pointer;
   border: none;
   appearance: none;
   padding: 0;
-
   width: 100%;
   min-height: 68px;
-
   @include font($poppins, 16px, 21px, 500, normal);
+
+  &--filter {
+    display: none;
+
+    @media (max-width: $tablet-width) {
+      display: block;
+    }
+  }
+
+  &--apply,
+  &--form,
+  &--filter {
+    background-color: $dark-orange;
+    color: $main-white;
+    border: 1px solid $dark-orange;
+
+    &:hover,
+    &:focus-visible {
+      transition: $trans--300;
+      background-color: transparent;
+      border: 1px solid $dark-orange;
+      color: $main-black;
+    }
+  }
+
+  &--reset {
+    background-color: $main-white;
+    border: 1px solid $dark-orange;
+    color: $main-black;
+    margin-top: 25px;
+
+    &:hover,
+    &:focus-visible {
+      transition: $trans--300;
+      background-color: $dark-orange;
+      color: $main-white;
+    }
+  }
 
   &--burger {
     span,
@@ -47,11 +81,6 @@
       transition: $trans--300;
       background-color: $dark-orange;
     }
-
-    &:active {
-      transition: $trans--300;
-      opacity: 0.5;
-    }
   }
 
   &--closed {
@@ -64,10 +93,6 @@
     &:focus-visible span::before {
       transition: $trans--300;
       background-color: $main-black;
-    }
-
-    &:active {
-      opacity: 0.3;
     }
 
     span::after,
@@ -92,14 +117,8 @@
     }
   }
 
-  &:hover,
-  &:focus-visible {
-    transition: $trans--300;
-    opacity: 0.7;
-    color: $main-black;
-  }
-
   &:active {
+    transition: $trans--300;
     opacity: 0.5;
   }
 }

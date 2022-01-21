@@ -1,6 +1,14 @@
 'use strict';
 (function () {
 
+  const hideList = (item, className) => {
+    item.classList.remove(className);
+  }
+
+  const showList = (item, className) => {
+    item.classList.add(className);
+  }
+
   // MENU
 
   const body = document.querySelector('.page__body');
@@ -10,13 +18,19 @@
   const headerWrap = header.querySelector('.header__wrapper');
   const menu = header.querySelector('.header__nav-menu');
   const overlay = document.querySelector('.overlay');
-  const accordion = document.querySelector('.accordion');
+  const accordionMain = document.querySelector('.accordion');
+  const accordionFilter = document.querySelector('.accordion-filter');
   const login = menu.querySelector('#login')
 
   headerWrap.classList.remove('header__wrapper--no-js');
   menu.classList.remove('header__nav-menu--no-js');
   intro.classList.remove('header__intro--no-js');
-  accordion.classList.remove('accordion--no-js');
+
+  if (!accordionFilter) {
+    accordionMain.classList.remove('accordion--no-js');
+  } else {
+    accordionFilter.classList.remove('accordion-filter--no-js');
+  }
 
   const isEscEvent = (evt) => evt.key === 'Escape' || evt.key === 'Esc';
 
@@ -106,30 +120,46 @@
 
   // ACCORDION
 
-  const accordionBtn = accordion.querySelectorAll('.accordion__toggle');
-  const accordionItem = accordion.querySelectorAll('.accordion__item');
+  if (accordionMain) {
+    const accordionBtn = accordionMain.querySelectorAll('.accordion__toggle');
+    const accordionItem = accordionMain.querySelectorAll('.accordion__item');
 
-  for (let i = 0; i < accordionBtn.length; i++) {
-    accordionBtn[i].addEventListener('click', toggleItem, false);
-  }
+    for (let i = 0; i < accordionBtn.length; i++) {
+      accordionBtn[i].addEventListener('click', toggleItem, false);
+    }
 
-  const hideList = (item) => {
-    item.classList.remove('accordion__item--show');
-  }
+    function toggleItem() {
+      let item = this.parentElement;
 
-  const showList = (item) => {
-    item.classList.add('accordion__item--show');
-  }
+      if (!item.classList.contains('accordion__item--show')) {
+        accordionItem.forEach(item => hideList(item, 'accordion__item--show'));
+        showList(item, 'accordion__item--show');
+      } else {
+        hideList(item, 'accordion__item--show');
+      }
+    }
+  } else if (accordionFilter) {
+    const accordionFilterBtn = accordionFilter.querySelectorAll('.accordion-filter__btn');
 
-  function toggleItem() {
-    let item = this.parentElement;
+    for (let i = 0; i < accordionFilterBtn.length; i++) {
+      accordionFilterBtn[i].addEventListener('click', toggleItem, false);
+    }
 
+    function toggleItem() {
+      let item = this.parentElement;
 
-    if (!item.classList.contains('accordion__item--show')) {
-      accordionItem.forEach(item => hideList(item));
-      showList(item);
-    } else {
-      hideList(item);
+      if (!item.classList.contains('accordion-filter__item--show')) {
+        showList(item, 'accordion-filter__item--show');
+      } else {
+        hideList(item, 'accordion-filter__item--show');
+      }
     }
   }
+
+
+
+
+  // ACCORDION CATALOG
+
+
 })();

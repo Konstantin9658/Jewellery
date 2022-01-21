@@ -1,0 +1,7 @@
+.main-catalog {
+  display: flex;
+
+  @media (max-width: $tablet-width) {
+    flex-flow: column wrap;
+  }
+}

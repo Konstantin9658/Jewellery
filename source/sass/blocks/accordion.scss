@@ -4,25 +4,24 @@
     display: none;
   }
 
-  .accordion__item p {
-    display: block;
+  .accordion__desc {
+    display: flex;
   }
+}
+
+.accordion__desc {
+  display: none;
 }
 
 .accordion__item {
 
-  p,
-  .accordion__item-content {
-    display: none;
-  }
-
   &--show {
-    p,
-    .accordion__item-content {
+
+    .accordion__desc {
       display: flex;
     }
 
-    button {
+    .accordion__toggle {
 
       &::after {
         transform: rotate(-45deg);
@@ -38,12 +37,6 @@
       }
     }
   }
-}
-
-.accordion__item-content {
-  flex-flow: column wrap;
-  margin-top: 24px;
-  padding-left: 35px;
 }
 
 .accordion__toggle {
