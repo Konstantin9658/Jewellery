@@ -1,29 +1,21 @@
 .filter-box {
   margin-right: 50px;
-  width: 100%;
+  width: max-content;
 
   @media (max-width: $tablet-width) {
     margin-right: 0;
+    width: 100%;
   }
 }
 
 .filter-box__inner {
+
   @media (max-width: $tablet-width) {
     .filter-box__form {
       display: none;
     }
-
-    &--show {
-      .filter-box__form {
-        display: block;
-      }
-    }
   }
 }
-
-// .filter-box__form {
-
-// }
 
 .filter-box__list {
   list-style: none;
@@ -34,6 +26,12 @@
   width: 250px;
   min-height: 272px;
   margin-bottom: 35px;
+
+  @media (max-width: $tablet-width) {
+    width: 100%;
+    border: none;
+    border-bottom: 1px solid $dark-orange;
+  }
 }
 
 .filter-box__item {
@@ -195,4 +193,135 @@
 
 .filter-box__min-price {
   margin-right: 60px;
+}
+
+
+.filter-box__inner--show {
+
+  @media (max-width: $tablet-width) {
+    .filter-box__overlay,
+    .filter-box__form {
+      display: block;
+      animation: bounce .6s;
+      position: fixed;
+      top: 5%;
+      right: 0;
+      bottom: 5%;
+      left: 0;
+      z-index: 50;
+      background-color: $main-white;
+      padding-bottom: 50px;
+    }
+
+    .filter-box__form {
+      background-color: $main-white;
+      width: 423px;
+      max-height: 900px;
+      overflow: auto;
+      box-shadow:  7px 7px 10px 0px rgba($main-black, 0.2);
+    }
+
+    .filter-box__overlay {
+      top: 0;
+      bottom: 0;
+      z-index: 45;
+
+      button {
+        display: block;
+      }
+    }
+
+    .filter-box__item {
+      padding-left: 22px;
+    }
+
+    label {
+      @include resize-txt(16px, 21px);
+    }
+
+    input + label::after,
+    input:checked + label::before {
+      width: 18px;
+      height: 18px;
+      left: -30px;
+      top: 1px;
+    }
+
+    .filter-box__item {
+      min-height: 92px;
+      padding-top: 32px;
+    }
+
+    h3 {
+      @include resize-txt(18px, 23px);
+    }
+
+    .filter-box__item-checkbox {
+      padding-left: 39px;
+
+      &:last-child {
+        padding-bottom: 20px;
+      }
+
+      &:not(:last-child) {
+        padding-bottom: 17px;
+      }
+    }
+
+    .filter-box__range-controls {
+      height: 81px;
+    }
+
+    .filter-box__scale {
+
+      &::after {
+        top: 10px;
+        width: 304px;
+      }
+    }
+
+    .filter-box__bar {
+
+      &::after {
+        top: 10px;
+        left: 15%;
+      }
+    }
+
+    .filter-box__toggle {
+      width: 18px;
+      height: 18px;
+
+      &--min,
+      &--max {
+        top: 1px;
+      }
+
+      &--min {
+        left: 13.5%;
+      }
+
+      &--max {
+        left: 57.5%;
+      }
+    }
+
+    .filter-box__price {
+      padding-top: 26px;
+      padding-left: 44px;
+
+      input {
+        @include resize-txt(16px, 21px);
+        width: 45px;
+      }
+    }
+
+    .filter-box__min-price {
+      margin-right: 125px;
+    }
+
+    .filter-box__list {
+      margin-bottom: 40px;
+    }
+  }
 }

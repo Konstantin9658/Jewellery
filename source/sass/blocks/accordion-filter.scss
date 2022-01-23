@@ -15,6 +15,14 @@
       &::after {
         top: 31px;
         transform: rotate(-45deg);
+
+        @media (max-width: $tablet-width) {
+          top: 41px;
+        }
+      }
+
+      @media (max-width: $tablet-width) {
+        height: 60px;
       }
     }
   }
@@ -47,5 +55,10 @@
   &::after {
     top: 23px;
     right: 26px;
+
+    @media (max-width: $tablet-width) {
+      top: 31px;
+      right: 44px;
+    }
   }
 }

@@ -44,7 +44,7 @@
   }
 
   h3 {
-    @include font($cormorant, 34px, 34px, 700, normal);
+    @include font($cormorant, 34px, 40px, 700, normal);
     letter-spacing: 0;
 
     @media (max-width: $mobile-width) {
@@ -53,7 +53,7 @@
   }
 
   p {
-    @include font($cormorant, 22px, 40px, 500, italic);
+    @include font($cormorant, 22px, 35px, 500, italic);
 
     @media (max-width: $mobile-width) {
       @include resize-txt(22px, 29px);
