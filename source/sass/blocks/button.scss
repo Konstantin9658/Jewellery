@@ -2,17 +2,85 @@
   @include flex-center;
   cursor: pointer;
   border: none;
+  background-color: transparent;
   appearance: none;
   padding: 0;
   width: 100%;
   min-height: 68px;
   @include font($poppins, 16px, 21px, 500, normal);
 
+  &--filter-closed {
+    display: none;
+
+    @media (max-width: $tablet-width) {
+      position: absolute;
+      width: 50px;
+      height: 50px;
+      left: 420px;
+      top: 0px;
+
+      &::after {
+        position: absolute;
+        content: "";
+        width: 32px;
+        height: 32px;
+        border-radius: 50%;
+        background-color: $main-black;
+        top: 12px;
+        left: 9px;
+      }
+
+      span::after,
+      span::before {
+        position: absolute;
+        content: "";
+        background-color: $main-white;
+        width: 13px;
+        height: 1.5px;
+        z-index: 2;
+        top: 26.5px;
+        left: 18.7px;
+      }
+
+      span::after {
+        transform: rotate(45deg);
+      }
+
+      span::before {
+        transform: rotate(-45deg);
+      }
+
+      &:hover,
+      &:focus-visible {
+
+        &::after {
+          transition: $trans--300;
+          background-color: transparent;
+        }
+
+        & span::after,
+        & span::before {
+          transition: $trans--300;
+          background-color: $main-black;
+        }
+      }
+    }
+  }
+
   &--filter {
     display: none;
 
     @media (max-width: $tablet-width) {
       display: block;
+    }
+  }
+
+  &--apply,
+  &--reset {
+
+    @media (max-width: $tablet-width) {
+      width: calc(100% - 40px);
+      margin: 0 auto;
     }
   }
 
