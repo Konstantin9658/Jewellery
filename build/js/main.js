@@ -121,6 +121,8 @@
   // ACCORDION
 
   if (accordionMain) {
+    // ACCORDION
+
     const accordionBtn = accordionMain.querySelectorAll('.accordion__toggle');
     const accordionItem = accordionMain.querySelectorAll('.accordion__item');
 
@@ -138,8 +140,75 @@
         hideList(item, 'accordion__item--show');
       }
     }
+
+      // SLIDER
+
+      let position = 0;
+      let slidesToShow = 4;
+      let slidesToScroll = 4;
+      const container = document.querySelector('.product__container');
+      const track = document.querySelector('.product__cards');
+      const items = track.querySelectorAll('.product__card');
+      const itemsCount = items.length;
+      const itemWidth = container.clientWidth / slidesToShow;
+      const movePosition = slidesToScroll * itemWidth;
+      const btnNext = document.querySelector('.product__control-btn--right');
+      const btnPrev = document.querySelector('.product__control-btn--left');
+
+      items.forEach(item => item.style.minWidth = `${itemWidth}px`);
+
+      btnNext.addEventListener('click', () => {
+        const itemsLeft = itemsCount - (Math.abs(position) + slidesToShow * itemWidth) / itemWidth;
+        position -= itemsLeft >= slidesToScroll ? movePosition : itemsLeft * itemWidth;
+
+        setPosition();
+        checkBtns();
+      })
+
+      btnPrev.addEventListener('click', () => {
+        const itemsLeft = Math.abs(position) / itemWidth;
+
+        position += itemsLeft >= slidesToScroll ? movePosition : itemsLeft * itemWidth;
+
+        setPosition();
+        checkBtns();
+      })
+
+      const setPosition = () => {
+        track.style.transform = `translateX(${position}px)`;
+      }
+
+      const checkBtns = () => {
+        btnPrev.disabled = position === 0;
+        btnNext.disabled = position <= -(itemsCount - slidesToShow) * itemWidth;
+      }
+
+    checkBtns();
   } else if (accordionFilter) {
     const accordionFilterBtn = accordionFilter.querySelectorAll('.accordion-filter__btn');
+    const filterOpen = document.querySelector('.button--filter');
+    const filterContent = document.querySelector('.filter-box__inner');
+    const filterClose = document.querySelector('.button--filter-closed');
+    const filterApply = filterContent.querySelector('.button--apply');
+    const filterOverlay = document.querySelector('.filter-box__overlay');
+
+    filterOpen.addEventListener('click', showFilter)
+
+    filterClose.addEventListener('click', hideFilter)
+
+    filterApply.addEventListener('click', hideFilter)
+
+    filterOverlay.addEventListener('click', hideFilter)
+
+    function hideFilter() {
+      filterContent.classList.remove('filter-box__inner--show');
+      body.style.overflow = '';
+    }
+
+    function showFilter() {
+      filterContent.classList.add('filter-box__inner--show');
+      body.style.overflow = 'hidden';
+    }
 
     for (let i = 0; i < accordionFilterBtn.length; i++) {
       accordionFilterBtn[i].addEventListener('click', toggleItem, false);
@@ -155,11 +224,4 @@
       }
     }
   }
-
-
-
-
-  // ACCORDION CATALOG
-
-
 })();
