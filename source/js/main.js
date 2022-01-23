@@ -118,8 +118,6 @@
 
   // = = = = = = = = = = = = = = = = = = = = = = = = = = = //
 
-  // ACCORDION
-
   if (accordionMain) {
     // ACCORDION
 
