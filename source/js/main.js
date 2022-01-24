@@ -139,47 +139,70 @@
       }
     }
 
-      // SLIDER
+    // SLIDER
 
-      let position = 0;
-      let slidesToShow = 4;
-      let slidesToScroll = 4;
-      const container = document.querySelector('.product__container');
-      const track = document.querySelector('.product__cards');
-      const items = track.querySelectorAll('.product__card');
-      const itemsCount = items.length;
-      const itemWidth = container.clientWidth / slidesToShow;
-      const movePosition = slidesToScroll * itemWidth;
-      const btnNext = document.querySelector('.product__control-btn--right');
-      const btnPrev = document.querySelector('.product__control-btn--left');
+    let position = 0;
+    let slidesToShow = 4;
+    let slidesToScroll = 4;
+    const container = document.querySelector('.product__container');
+    const track = document.querySelector('.product__cards');
+    const items = track.querySelectorAll('.product__card');
+    const itemsCount = items.length;
+    const itemWidth = container.clientWidth / slidesToShow;
+    const movePosition = slidesToScroll * itemWidth;
+    const btnNext = document.querySelector('.product__control-btn--right');
+    const btnPrev = document.querySelector('.product__control-btn--left');
 
-      items.forEach(item => item.style.minWidth = `${itemWidth}px`);
+    // if (matchMedia) {
+    //   let screen = window.matchMedia('(max-width: 1023px)');
+    //   screen.addEventListener(changes);
+    //   changes(screen);
+    // }
 
-      btnNext.addEventListener('click', () => {
-        const itemsLeft = itemsCount - (Math.abs(position) + slidesToShow * itemWidth) / itemWidth;
-        position -= itemsLeft >= slidesToScroll ? movePosition : itemsLeft * itemWidth;
+    // function changes(screen) {
+    //   if (screen.matches) {
+    //   slidesToShow = 2;
+    //   slidesToScroll = 2;
+    //   btnNext.addEventListener('click', btnNextHandler)
+    //   btnPrev.addEventListener('click', btnPrevHandler)
+    //   } else {
+    //   slidesToScroll = 4;
+    //   slidesToShow = 4;
+    //   btnNext.addEventListener('click', btnNextHandler)
+    //   btnPrev.addEventListener('click', btnPrevHandler)
+    //   }
+    // }
 
-        setPosition();
-        checkBtns();
-      })
+    items.forEach(item => item.style.minWidth = `${itemWidth}px`);
 
-      btnPrev.addEventListener('click', () => {
-        const itemsLeft = Math.abs(position) / itemWidth;
+    function btnNextHandler() {
+      const itemsLeft = itemsCount - (Math.abs(position) + slidesToShow * itemWidth) / itemWidth;
+      position -= itemsLeft >= slidesToScroll ? movePosition : itemsLeft * itemWidth;
 
-        position += itemsLeft >= slidesToScroll ? movePosition : itemsLeft * itemWidth;
+      setPosition();
+      checkBtns();
+    }
 
-        setPosition();
-        checkBtns();
-      })
+    function btnPrevHandler() {
+      const itemsLeft = Math.abs(position) / itemWidth;
 
-      const setPosition = () => {
-        track.style.transform = `translateX(${position}px)`;
-      }
+      position += itemsLeft >= slidesToScroll ? movePosition : itemsLeft * itemWidth;
 
-      const checkBtns = () => {
-        btnPrev.disabled = position === 0;
-        btnNext.disabled = position <= -(itemsCount - slidesToShow) * itemWidth;
-      }
+      setPosition();
+      checkBtns();
+    }
+
+    btnNext.addEventListener('click', btnNextHandler)
+    btnPrev.addEventListener('click', btnPrevHandler)
+
+    const setPosition = () => {
+      track.style.transform = `translateX(${position}px)`;
+    }
+
+    const checkBtns = () => {
+      btnPrev.disabled = position === 0;
+      btnNext.disabled = position <= -(itemsCount - slidesToShow) * itemWidth;
+    }
 
     checkBtns();
   } else if (accordionFilter) {
