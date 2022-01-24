@@ -219,6 +219,13 @@
       max-height: 900px;
       overflow: auto;
       box-shadow:  7px 7px 10px 0px rgba($main-black, 0.2);
+
+      @media (max-width: $mobile-width) {
+        width: 270px;
+        max-height: 550px;
+        margin: 0 auto;
+        box-shadow: 0px 3px 10px 4px rgba($main-black, 0.2);
+      }
     }
 
     .filter-box__overlay {
@@ -250,6 +257,11 @@
     .filter-box__item {
       min-height: 92px;
       padding-top: 32px;
+
+      @media (max-width: $mobile-width) {
+        min-height: 72px;
+        padding-top: 22px;
+      }
     }
 
     h3 {
@@ -277,6 +289,11 @@
       &::after {
         top: 10px;
         width: 304px;
+
+        @media (max-width: $mobile-width) {
+          width: 250px;
+          left: -12px;
+        }
       }
     }
 
@@ -314,10 +331,18 @@
         @include resize-txt(16px, 21px);
         width: 45px;
       }
+
+      @media (max-width: $mobile-width) {
+        padding-left: 20px;
+      }
     }
 
     .filter-box__min-price {
       margin-right: 125px;
+
+      @media (max-width: $mobile-width) {
+        margin-right: 60px;
+      }
     }
 
     .filter-box__list {
