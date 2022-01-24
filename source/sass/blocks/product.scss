@@ -130,26 +130,27 @@
   margin: 30px auto 0;
   overflow: hidden;
 
-  @media (min-width: $desktop-width) and (max-width: 1365px) {
-    width: 880px;
-  }
+  // @media (min-width: $desktop-width) and (max-width: 1365px) {
+  //   width: 880px;
+  // }
 
   @media (max-width: $tablet-width) {
     margin-top: 0;
-    width: 712px;
+    width: 708px;
     margin-bottom: 40px;
   }
 
   @media (max-width: $mobile-width) {
     width: 320px;
+    margin-bottom: 10px;
   }
 }
 
 .product__cards {
   display: flex;
-  width: 1190px;
+  // width: 1190px;
   padding: 30px 15px 0;
-  transition: $trans--300;
+  // transition: $trans--300;
 
 
   // @media (min-width: $desktop-width) and (max-width: 1365px) {
@@ -157,37 +158,36 @@
   // }
 
   @media (max-width: $tablet-width) {
-    // width: calc(100% - 90px);
+    // width: 100%;
     padding-top: 10px;
     margin-top: 40px;
-    overflow: auto;
   }
 
   @media (max-width: $mobile-width) {
-    // width: calc(100% - 30px);
-    width: 100%;
+    width: calc(100% - 30px);
+    // width: 100%;
     margin-top: 30px;
   }
 }
 
 .product__card {
-  min-width: 300px;
+  min-width: 270px;
   min-height: 284px;
   @include flex-center;
   flex-flow: column wrap;
   cursor: pointer;
 
   &:not(:last-child) {
-    padding-right: 30px;
+    margin-right: 30px;
   }
 
   @media (max-width: $tablet-width) {
-    min-width: 354px;
-    padding-right: 30px;
+    min-width: 324px;
+    margin-right: 30px;
   }
 
   @media (max-width: $mobile-width) {
-    min-width: 160px;
+    min-width: 130px;
     min-height: 240px;
     justify-content: flex-start;
   }
@@ -265,22 +265,19 @@
 .product__pagination-item {
   @include font($poppins, 16px, 21px, 500, normal);
   margin-right: 12px;
+  cursor: pointer;
+  color: $dark-gray;
 
   @media (max-width: $tablet-width) {
     margin-right: 13px;
   }
 
-  a {
-    cursor: pointer;
-    color: $dark-gray;
-  }
-
-  &--active a {
+  &--active {
     color: $main-black;
   }
 
-  &:hover a,
-  &:focus-visible a {
+  &:hover,
+  &:focus-visible {
     transition: $trans--300;
     color: $dark-orange;
   }
@@ -294,13 +291,17 @@
   display: none;
 
   @media (max-width: $mobile-width) {
+    @include font($poppins, 16px, 21px, 500, normal);
+    color: $main-black;
     display: flex;
     justify-content: center;
   }
+}
 
-  pre {
-    @include font($poppins, 16px, 21px, 500, normal);
-    color: $main-black;
-    margin: 0;
-  }
+.product__page-current {
+  margin-right: 10px;
+}
+
+.product__page-total {
+  margin-left: 10px;
 }

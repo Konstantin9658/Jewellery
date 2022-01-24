@@ -18,10 +18,10 @@
 
 .product-catalog__card {
   min-width: 200px;
-  padding-right: 0;
+  margin-right: 0;
 
   &:not(:last-child) {
-    padding-right: 0;
+    margin-right: 0;
   }
 
   @media (max-width: $tablet-width) {
