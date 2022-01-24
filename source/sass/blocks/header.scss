@@ -46,6 +46,7 @@
       transition: $trans--300;
 
       @media (max-width: $tablet-width) {
+        transition: none;
         color: transparent;
       }
     }
