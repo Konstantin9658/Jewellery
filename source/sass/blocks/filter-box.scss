@@ -213,18 +213,40 @@
       padding-bottom: 50px;
     }
 
+    button {
+      display: block;
+      z-index: 75;
+    }
+
     .filter-box__form {
       background-color: $main-white;
       width: 423px;
-      max-height: 900px;
+      max-height: 841px;
       overflow: auto;
       box-shadow:  7px 7px 10px 0px rgba($main-black, 0.2);
 
       @media (max-width: $mobile-width) {
         width: 270px;
-        max-height: 550px;
+        max-height: 748px;
         margin: 0 auto;
         box-shadow: 0px 3px 10px 4px rgba($main-black, 0.2);
+      }
+    }
+
+    .filter-box__list {
+      margin-bottom: 40px;
+
+      @media (max-width: $mobile-width) {
+        margin-bottom: 30px;
+      }
+    }
+
+    .filter-box__item {
+      padding-left: 22px;
+
+      @media (max-width: $mobile-width) {
+        padding-left: 21px;
+        padding-top: 25px;
       }
     }
 
@@ -236,10 +258,6 @@
       button {
         display: block;
       }
-    }
-
-    .filter-box__item {
-      padding-left: 22px;
     }
 
     label {
@@ -264,6 +282,13 @@
       }
     }
 
+    .filter-box__item-content {
+
+      @media (max-width: $mobile-width) {
+        margin-top: 20px;
+      }
+    }
+
     h3 {
       @include resize-txt(18px, 23px);
     }
@@ -273,6 +298,10 @@
 
       &:last-child {
         padding-bottom: 20px;
+
+        @media (max-width: $mobile-width) {
+          padding-bottom: 25px;
+        }
       }
 
       &:not(:last-child) {
@@ -282,6 +311,10 @@
 
     .filter-box__range-controls {
       height: 81px;
+
+      @media (max-width: $mobile-width) {
+        height: 76px;
+      }
     }
 
     .filter-box__scale {
@@ -293,6 +326,7 @@
         @media (max-width: $mobile-width) {
           width: 250px;
           left: -12px;
+          top: 15px;
         }
       }
     }
@@ -302,6 +336,11 @@
       &::after {
         top: 10px;
         left: 15%;
+
+        @media (max-width: $mobile-width) {
+          width: 54%;
+          top: 15px;
+        }
       }
     }
 
@@ -312,20 +351,36 @@
       &--min,
       &--max {
         top: 1px;
+
+        @media (max-width: $mobile-width) {
+          top: 6px;
+        }
       }
 
       &--min {
         left: 13.5%;
+
+        @media (max-width: $mobile-width) {
+          left: 11.5%;
+        }
       }
 
       &--max {
         left: 57.5%;
+
+        @media (max-width: $mobile-width) {
+          left: 66.5%;
+        }
       }
     }
 
     .filter-box__price {
       padding-top: 26px;
       padding-left: 44px;
+
+      @media (max-width: $mobile-width) {
+        padding-top: 29px;
+      }
 
       input {
         @include resize-txt(16px, 21px);
@@ -341,12 +396,8 @@
       margin-right: 125px;
 
       @media (max-width: $mobile-width) {
-        margin-right: 60px;
+        margin-right: 85px;
       }
-    }
-
-    .filter-box__list {
-      margin-bottom: 40px;
     }
   }
 }

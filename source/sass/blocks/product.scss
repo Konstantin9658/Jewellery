@@ -6,10 +6,12 @@
 
   @media (max-width: $tablet-width) {
     margin-top: 70px;
+    width: 768px;
   }
 
   @media (max-width: $mobile-width) {
     margin-top: 60px;
+    width: 100%;
   }
 
   h2 {
@@ -17,6 +19,7 @@
     color: $main-black;
     margin: 0;
     padding-bottom: 23px;
+    width: 100px;
 
     @media (max-width: $tablet-width) {
       padding-bottom: 19px;
@@ -130,9 +133,13 @@
   margin: 30px auto 0;
   overflow: hidden;
 
-  // @media (min-width: $desktop-width) and (max-width: 1365px) {
-  //   width: 880px;
-  // }
+  @media (min-width: $desktop-width) and (max-width: 1200px) {
+    width: 1024px;
+  }
+
+  &--no-js {
+    overflow: auto;
+  }
 
   @media (max-width: $tablet-width) {
     margin-top: 0;
@@ -148,24 +155,15 @@
 
 .product__cards {
   display: flex;
-  // width: 1190px;
   padding: 30px 15px 0;
-  // transition: $trans--300;
-
-
-  // @media (min-width: $desktop-width) and (max-width: 1365px) {
-  //   width: 880px;
-  // }
 
   @media (max-width: $tablet-width) {
-    // width: 100%;
     padding-top: 10px;
     margin-top: 40px;
   }
 
   @media (max-width: $mobile-width) {
     width: calc(100% - 30px);
-    // width: 100%;
     margin-top: 30px;
   }
 }
@@ -176,6 +174,11 @@
   @include flex-center;
   flex-flow: column wrap;
   cursor: pointer;
+  transition: $trans--300;
+
+  @media (min-width: $desktop-width) and (max-width: 1200px) {
+    min-width: 226px;
+  }
 
   &:not(:last-child) {
     margin-right: 30px;

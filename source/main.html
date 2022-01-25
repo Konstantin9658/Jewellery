@@ -7,11 +7,17 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <meta name="description" content="Top Quality Jewellery">
   <meta property="og:title" content="Jewellery">
+  <link rel="prefetch" href="fonts/poppins-bold.woff2" as="font" crossorigin="anonymous">
+  <link rel="prefetch" href="fonts/poppins-medium.woff2" as="font" crossorigin="anonymous">
+  <link rel="prefetch" href="fonts/poppins-regular.woff2" as="font" crossorigin="anonymous">
+  <link rel="prefetch" href="fonts/cormorantgaramond-bold.woff2" as="font" crossorigin="anonymous">
+  <link rel="prefetch" href="fonts/cormorantgaramond-italic.woff2" as="font" crossorigin="anonymous">
+  <link rel="prefetch" href="fonts/cormorantgaramond-semibold.woff2" as="font" crossorigin="anonymous">
   <link rel="stylesheet" href="css/style.min.css">
   <title>Jewellery</title>
 </head>
 
-<body class="page__body">
+<body class="page__body" id="main-page">
   <h1 class="visually-hidden">Online jewelry store</h1>
   <header class="header">
     <h2 class="visually-hidden">Site navigation</h2>
@@ -73,7 +79,7 @@
         <h2>New In</h2>
         <a href="catalog.html" class="product__link">Shop Now</a>
       </div>
-      <div class="product__container swiper">
+      <div class="product__container swiper product__container--no-js">
         <div class="product__cards swiper-wrapper">
           <!-- 1 -->
           <div class="product__card swiper-slide">
@@ -251,6 +257,8 @@
           <div class="blog__news-picture">
             <picture>
               <!-- 1x: 285 ; 2x: 570 -->
+              <source media="(max-width: 1023px)" type="image/webp" srcset="img/blog-img/jess-harper-sunday-blog-tablet.webp 1x, img/blog-img/jess-harper-sunday-blog-tablet@2x.webp 2x">
+              <source media="(max-width: 1023px)" srcset="img/blog-img/jess-harper-sunday-blog-tablet.jpg 1x, img/blog-img/jess-harper-sunday-blog-tablet@2x.jpg 2x">
               <source type="image/webp" srcset="img/blog-img/jess-harper-sunday-blog-desktop.webp 1x, img/blog-img/jess-harper-sunday-blog-desktop@2x.webp 2x">
               <img loading="lazy" src="img/blog-img/jess-harper-sunday-blog-desktop.jpg"
                 srcset="img/blog-img/jess-harper-sunday-blog-desktop@2x.jpg 2x" width="285" height="300"
@@ -268,6 +276,8 @@
           <div class="blog__news-picture">
             <picture>
               <!-- 1x: 285 ; 2x: 570 -->
+              <source media="(max-width: 1023px)" type="image/webp" srcset="img/blog-img/alex-holyoake-blog-tablet.webp 1x, img/blog-img/alex-holyoake-blog-tablet@2x.webp 2x">
+              <source media="(max-width: 1023px)" srcset="img/blog-img/alex-holyoake-blog-tablet.jpg 1x, img/blog-img/alex-holyoake-blog-tablet@2x.jpg 2x">
               <source type="image/webp" srcset="img/blog-img/alex-holyoake-blog-desktop.webp 1x, img/blog-img/alex-holyoake-blog-desktop@2x.webp 2x">
               <img loading="lazy" src="img/blog-img/alex-holyoake-blog-desktop.jpg"
                 srcset="img/blog-img/alex-holyoake-blog-desktop@2x.jpg 2x" width="285" height="300"
@@ -285,6 +295,8 @@
           <div class="blog__news-picture">
             <picture>
               <!-- 1x: 570 ; 2x: 1040 -->
+              <source media="(max-width: 1023px)" type="image/webp" srcset="img/blog-img/alve-odonnell-blog-tablet.webp 1x, img/blog-img/alve-odonnell-blog-tablet@2x.webp 2x">
+              <source media="(max-width: 1023px)" srcset="img/blog-img/alve-odonnell-blog-tablet.jpg 1x, img/blog-img/alve-odonnell-blog-tablet@2x.jpg 2x">
               <source type="image/webp" srcset="img/blog-img/alve-odonnell-blog-desktop.webp 1x ,img/blog-img/alve-odonnell-blog-desktop@2x.webp 2x">
               <img loading="lazy" src="img/blog-img/alve-odonnell-blog-desktop.jpg"
                 srcset="img/blog-img/alve-odonnell-blog-desktop@2x.jpg 2x" width="570" height="630"
@@ -307,28 +319,28 @@
           <h3>What materials are the&nbsp;jewellery made of?</h3>
           <p class="accordion__desc">Our jewellerry is made of solid gold, silver or leather.&nbsp; Also, some jewellery contains precious and
             semiprecious stones and crystals.</p>
-          <button class="accordion__toggle" type="button" aria-label="hide/show question"></button>
+          <button class="accordion-toggler" type="button" aria-label="hide/show question"></button>
         </li>
         <!-- 2 -->
         <li class="questions__item accordion__item">
           <h3>Which countries do&nbsp;you&nbsp;deliver to?</h3>
           <p class="accordion__desc">Our jewellerry is made of solid gold, silver or leather.&nbsp; Also, some jewellery contains precious and
             semiprecious stones and crystals.</p>
-          <button class="accordion__toggle" type="button" aria-label="hide/show question"></button>
+          <button class="accordion-toggler" type="button" aria-label="hide/show question"></button>
         </li>
         <!-- 3 -->
         <li class="questions__item accordion__item">
           <h3>What are the payment&nbsp;methods?</h3>
           <p class="accordion__desc">Our jewellerry is made of solid gold, silver or leather.&nbsp; Also, some jewellery contains precious and
             semiprecious stones and crystals.</p>
-          <button class="accordion__toggle" type="button" aria-label="hide/show question"></button>
+          <button class="accordion-toggler" type="button" aria-label="hide/show question"></button>
         </li>
         <!-- 4 -->
         <li class="questions__item accordion__item">
           <h3>Can I return the jewellery&nbsp;if it didn’t fit me?</h3>
           <p class="accordion__desc">Our jewellerry is made of solid gold, silver or leather.&nbsp; Also, some jewellery contains precious and
             semiprecious stones and crystals.</p>
-          <button class="accordion__toggle" type="button" aria-label="hide/show question"></button>
+          <button class="accordion-toggler" type="button" aria-label="hide/show question"></button>
         </li>
       </ul>
     </section>

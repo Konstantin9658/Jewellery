@@ -1,0 +1,28 @@
+.accordion-toggler {
+
+  &::after {
+    content: "";
+    position: absolute;
+    width: 12px;
+    height: 12px;
+    border-top: 1px solid $dark-orange;
+    border-right: 1px solid $dark-orange;
+    transform: rotate(135deg);
+    top: 43px;
+    right: 50px;
+
+    @media (max-width: $tablet-width) {
+      width: 17px;
+      height: 17px;
+      top: 41px;
+      right: 52px;
+    }
+
+    @media (max-width: $mobile-width) {
+      width: 15px;
+      height: 15px;
+      right: 26px;
+      top: 17px;
+    }
+  }
+}

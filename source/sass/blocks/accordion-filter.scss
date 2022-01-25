@@ -12,6 +12,10 @@
 
     .accordion-filter__btn {
 
+      @media (max-width: $tablet-width) {
+        height: 60px;
+      }
+
       &::after {
         top: 31px;
         transform: rotate(-45deg);
@@ -19,10 +23,10 @@
         @media (max-width: $tablet-width) {
           top: 41px;
         }
-      }
 
-      @media (max-width: $tablet-width) {
-        height: 60px;
+        @media (max-width: $mobile-width) {
+          top: 30px;
+        }
       }
     }
   }
@@ -59,6 +63,11 @@
     @media (max-width: $tablet-width) {
       top: 31px;
       right: 44px;
+    }
+
+    @media (max-width: $mobile-width) {
+      top: 22px;
+      right: 23px;
     }
   }
 }
