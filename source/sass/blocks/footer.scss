@@ -163,7 +163,7 @@
 
     span::after,
     span::before {
-      content: '';
+      content: "";
       position: absolute;
       width: 7.2px;
       height: 1px;
@@ -215,13 +215,6 @@
     padding-bottom: 21px;
   }
 }
-
-// .footer__aside-list {
-
-//   @media (max-width: $mobile-width) {
-//     margin-bottom: 30px;
-//   }
-// }
 
 .footer__about-us-list {
   padding-left: 20px;
