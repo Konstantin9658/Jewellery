@@ -1,4 +1,7 @@
-.product-catalog__wrapper {
+.product-catalog__list {
+  list-style: none;
+  margin: 0;
+  padding: 0;
   display: grid;
   grid-template-columns: repeat(3, 1fr);
   row-gap: 36px;
@@ -16,7 +19,7 @@
   }
 }
 
-.product-catalog__card {
+.product-catalog__item {
   min-width: 200px;
   margin-right: 0;
 
@@ -110,18 +113,3 @@
     display: none;
   }
 }
-
-// .product-catalog__pagination-item {
-
-//   &:first-child,
-//   &:last-child {
-//     a {
-//       color: $main-black;
-//     }
-//   }
-
-//   &:last-child {
-//     margin-left: auto;
-//     margin-right: 0;
-//   }
-// }

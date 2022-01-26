@@ -134,7 +134,7 @@
   overflow: hidden;
 
   @media (min-width: $desktop-width) and (max-width: 1200px) {
-    width: 1024px;
+    width: 100%;
   }
 
   &--no-js {
@@ -153,9 +153,11 @@
   }
 }
 
-.product__cards {
+.product__list {
   display: flex;
-  padding: 30px 15px 0;
+  margin: 0;
+  list-style: none;
+  padding: 30px 25px 0 15px;
 
   @media (max-width: $tablet-width) {
     padding-top: 10px;
@@ -168,7 +170,7 @@
   }
 }
 
-.product__card {
+.product__item {
   min-width: 270px;
   min-height: 284px;
   @include flex-center;
@@ -177,7 +179,7 @@
   transition: $trans--300;
 
   @media (min-width: $desktop-width) and (max-width: 1200px) {
-    min-width: 226px;
+    min-width: 23%;
   }
 
   &:not(:last-child) {
@@ -195,6 +197,10 @@
     justify-content: flex-start;
   }
 
+  figure {
+    margin: 0;
+  }
+
   img {
     height: 284px;
 
@@ -210,23 +216,26 @@
   }
 
   &:hover img,
-  &:focus-visible img {
+  &:focus-visible img,
+  &:hover figcaption,
+  &:focus-visible figcaption {
     transition: $trans--300;
     transform: scale(1.05);
+    color: $dark-orange;
 
     @media (max-width: $tablet-width) {
       transform: scale(1.02);
     }
   }
 
-  &:hover a,
-  &:focus-visible a {
+  &:active {
     transition: $trans--300;
-    color: $dark-orange;
+    opacity: 0.7;
+    transform: scale(0.9)
   }
 }
 
-.product__card-link {
+.product__item-caption {
   @include font($poppins, 16px, 21px, 500, normal);
   color: $main-black;
   text-align: center;
