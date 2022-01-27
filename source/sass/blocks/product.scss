@@ -203,6 +203,7 @@
 
   p {
     @include font($poppins, 16px, 21px, 500, normal);
+    margin: 0;
     color: $main-black;
     text-align: center;
     margin-top: 21px;
