@@ -212,7 +212,7 @@
       margin-top: 16px;
     }
 
-    span {
+    &:last-child {
       @include font($poppins, 14px, 18px, 700, normal);
       margin-top: 6px;
       display: block;
