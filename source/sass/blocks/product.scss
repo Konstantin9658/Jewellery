@@ -201,7 +201,7 @@
     margin: 0;
   }
 
-  figcaption {
+  p {
     @include font($poppins, 16px, 21px, 500, normal);
     color: $main-black;
     text-align: center;
@@ -234,8 +234,8 @@
 
   &:hover img,
   &:focus-visible img,
-  &:hover figcaption,
-  &:focus-visible figcaption {
+  &:hover p,
+  &:focus-visible p {
     transition: $trans--300;
     transform: scale(1.05);
     color: $dark-orange;
