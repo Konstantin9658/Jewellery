@@ -8,6 +8,10 @@
   background-color: $light-gray;
   transition: $trans--300;
 
+  @media (max-width: $tablet-width) {
+    max-width: 442px;
+  }
+
   @media (max-width: $mobile-width) {
     height: 470px;
   }
@@ -30,15 +34,36 @@
 
 .modal-login__button {
   width: 50px;
-  height: 50px;
-  right: -4px;
-  top: 1px;
+  min-height: 50px;
+  right: 0;
+  top: 0;
+
+  @media (max-width: $mobile-width) {
+    width: 40px;
+    min-height: 40px;
+  }
 
   span {
     &::after,
     &::before {
       width: 17px;
       background-color: $main-black;
+      left: 15px;
+      top: 26px;
+
+      @media (max-width: $tablet-width) {
+        width: 25px;
+        height: 3px;
+        left: 7px;
+        top: 30px;
+      }
+
+      @media (max-width: $mobile-width) {
+        width: 17px;
+        height: 2px;
+        top: 21px;
+        left: 10px;
+      }
     }
   }
 
@@ -68,6 +93,10 @@
   padding: 50px 45px;
   flex-grow: 1;
 
+  @media (max-width: $tablet-width) {
+    padding: 50px 51px;
+  }
+
   @media (max-width: $mobile-width) {
     padding: 36px 15px;
   }
@@ -76,7 +105,11 @@
     @include font($cormorant, 34px, 44px, 700, normal);
     text-align: center;
     margin: 0;
-    padding-bottom: 45px;
+    padding-bottom: 44px;
+
+    @media (max-width: $tablet-width) {
+      padding-bottom: 32px;
+    }
 
     @media (max-width: $mobile-width) {
       @include resize-txt(24px, 31px);
@@ -142,6 +175,10 @@
 .modal-login__input-email {
   margin-bottom: 20px;
 
+  @media (max-width: $tablet-width) {
+    margin-bottom: 33px;
+  }
+
   @media (max-width: $mobile-width) {
     margin-bottom: 28px;
   }
@@ -151,7 +188,7 @@
   margin-bottom: 45px;
 
   @media (max-width: $mobile-width) {
-    margin-bottom: 37px;
+    margin-bottom: 35px;
   }
 
   a {
@@ -159,7 +196,9 @@
     color: $dark-gray;
     text-align: right;
     display: block;
-    padding-top: 3px;
+    width: fit-content;
+    margin-left: auto;
+    padding-top: 5px;
 
     &:hover,
     &:focus-visible {

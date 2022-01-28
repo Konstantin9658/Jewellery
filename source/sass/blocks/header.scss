@@ -122,6 +122,10 @@
         width: 100%;
         top: 136px;
 
+        @media (max-width: $mobile-width) {
+          top: 102px;
+        }
+
         &:hover,
         &:focus-visible {
 
@@ -263,9 +267,10 @@
       padding: 0 45px;
       animation: bounce .6s;
       background-color: $dark-orange;
-      height: 778px;
+      height: auto;
       position: absolute;
       top: 0;
+      bottom: 0;
       left: 0;
       z-index: 2;
 
@@ -273,7 +278,12 @@
         overflow: auto;
         position: fixed;
         height: 64%;
+        width: 100%;
         margin-top: 205px;
+
+        @media (max-width: $mobile-width) {
+          margin-top: 161px;
+        }
       }
 
       @media (max-width: $mobile-width) {
@@ -304,7 +314,13 @@
 .header__nav-list {
 
   @media (max-width: $tablet-width) {
-  margin-bottom: 0;
+    margin-bottom: 0;
+  }
+}
+
+.header__nav-list-mobile {
+  @media (max-width: $mobile-width) {
+    margin-top: 8px;
   }
 }
 
@@ -326,6 +342,10 @@
 
     &--login {
       padding-top: 25px;
+
+      @media (max-width: $mobile-width) {
+        padding-top: 15px;
+      }
 
       a {
         color: $main-white;
@@ -460,7 +480,7 @@
     border: none;
     appearance: none;
     width: 50px;
-    height: 50px;
+    min-height: 50px;
     background-color: transparent;
   }
 
