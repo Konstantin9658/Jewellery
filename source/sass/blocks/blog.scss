@@ -81,13 +81,14 @@
 
 .blog__news-item {
   display: flex;
+  flex-wrap: wrap;
   position: relative;
   width: 100%;
-  height: 300px;
+  min-height: 300px;
 
   @media (max-width: $mobile-width) {
     flex-direction: column;
-    height: 512px;
+    min-height: 512px;
   }
 }
 
@@ -99,7 +100,7 @@
 
   @media (max-width: $mobile-width) {
     width: 100%;
-    height: 256px;
+    min-height: 256px;
   }
 
   img {
@@ -153,7 +154,7 @@
 
 .blog__news-item-content {
   width: 285px;
-  height: 300px;
+  min-height: 300px;
   background-color: $light-gray;
   display: flex;
   align-items: center;
