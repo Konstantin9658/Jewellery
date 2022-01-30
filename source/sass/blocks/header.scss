@@ -14,6 +14,8 @@
     .header__logo-img {
       margin-right: 0;
       --open-menu: #a87b62;
+      transform: none;
+      right: 0;
     }
 
     .header__wrapper {
@@ -28,7 +30,9 @@
 }
 
 .header__search-field {
+  width: 350px;
   margin-bottom: 8px;
+  margin-right: auto;
 
   @media (max-width: $tablet-width) {
     visibility: hidden;
@@ -144,6 +148,7 @@
       .header__logo {
         --open-menu: #ffffff;
         z-index: 3;
+        width: 66px;
       }
 
       .header__icon-cart {
@@ -229,6 +234,8 @@
   @media (max-width: $tablet-width) {
     display: block;
     cursor: pointer;
+    position: absolute;
+    right: 0;
 
     &:hover,
     &:focus-visible {
@@ -244,6 +251,9 @@
 
 .header__account-list {
   margin-bottom: 8px;
+  width: 350px;
+  margin-left: auto;
+  justify-content: flex-end;
 
   @media (max-width: $tablet-width) {
     display: none;
@@ -257,12 +267,15 @@
 }
 
 .header__nav-menu {
+  margin-left: 45px;
+
   @media (max-width: $tablet-width) {
     display: none;
 
     &--show,
     &--no-js {
       display: block;
+      margin: 0;
       width: 100%;
       padding: 0 45px;
       animation: bounce .6s;
@@ -296,15 +309,24 @@
         flex-flow: column wrap;
       }
     }
+
+    &--no-js {
+      min-height: 744px;
+
+      div {
+        position: static;
+        height: 100%;
+      }
+    }
   }
 }
 
 .header__nav-list,
 .header__nav-list-mobile {
-  justify-content: center;
+  // justify-content: center;
   margin-top: 18px;
   margin-bottom: 19px;
-  margin-left: 43px;
+  margin-left: 10px;
 
   @media (max-width: $tablet-width) {
     margin-left: 0;
@@ -312,9 +334,12 @@
 }
 
 .header__nav-list {
+  width: 526px;
+  margin: 18px auto 19px;
 
   @media (max-width: $tablet-width) {
     margin-bottom: 0;
+    width: 100%;
   }
 }
 
@@ -361,23 +386,27 @@
 }
 
 .header__logo {
-  flex-grow: 1;
-  @include flex-center;
   pointer-events: none;
+  cursor: pointer;
 }
 
 .header__logo-img {
-  margin-right: 36px;
   margin-top: 13px;
 
   @media (max-width: $tablet-width) {
     margin-right: -19px;
     margin-top: 0;
+    position: absolute;
+    top: 30px;
+    right: 50%;
+    transform: translateX(21%);
   }
 
   @media (max-width: $mobile-width) {
     width: 52px;
     height: 52px;
+    top: 20px;
+    transform: translateX(13%);
   }
 }
 
@@ -388,6 +417,7 @@
   background-color: $dark-orange;
   background-image: url("../img/intro-desktop.jpg");
   background-repeat: no-repeat;
+  background-position: center;
   background-size: cover;
 
   @include retina {

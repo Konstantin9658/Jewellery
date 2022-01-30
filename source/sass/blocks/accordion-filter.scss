@@ -11,10 +11,7 @@
     }
 
     .accordion-filter__btn {
-
-      @media (max-width: $tablet-width) {
-        height: 60px;
-      }
+      height: 60px;
 
       &::after {
         top: 31px;
@@ -52,9 +49,13 @@
   border: none;
   appearance: none;
   width: 100%;
-  height: 40px;
+  height: 68px;
   left: 0;
   top: 0;
+
+  @media (max-width: $tablet-width) {
+    height: 92px;
+  }
 
   &::after {
     top: 23px;

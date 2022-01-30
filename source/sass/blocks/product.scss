@@ -173,7 +173,8 @@
 .product__item {
   min-width: 270px;
   min-height: 284px;
-  @include flex-center;
+  display: flex;
+  align-items: center;
   flex-flow: column wrap;
   cursor: pointer;
   transition: $trans--300;
@@ -220,16 +221,16 @@
   }
 
   img {
-    height: 284px;
+    height: auto;
 
     @media (max-width: $tablet-width) {
       min-width: 324px;
-      height: 340px;
+      // height: 340px;
     }
 
     @media (max-width: $mobile-width) {
       min-width: 130px;
-      height: 136px;
+      // height: 136px;
     }
   }
 
