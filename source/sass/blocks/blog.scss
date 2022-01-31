@@ -74,14 +74,13 @@
 
   @media (max-width: $mobile-width) {
     margin-top: 50px;
-    row-gap: 40px;
+    row-gap: 39px;
     margin-bottom: 60px;
   }
 }
 
 .blog__news-item {
   display: flex;
-  // flex-wrap: wrap;
   position: relative;
   width: 100%;
   min-height: 300px;
@@ -154,6 +153,7 @@
 
 .blog__news-item-content {
   width: 285px;
+  min-width: 285px;
   min-height: 300px;
   background-color: $light-gray;
   display: flex;

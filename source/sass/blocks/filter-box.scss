@@ -186,6 +186,7 @@
     @include font($poppins, 14px, 18px, 500, normal);
     color: $main-black;
     border: none;
+    border-radius: 0;
     appearance: none;
     padding: 0;
     width: 40px;
@@ -386,6 +387,7 @@
       }
 
       input {
+        border-radius: 0;
         @include resize-txt(16px, 21px);
         width: 45px;
       }

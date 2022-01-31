@@ -15,6 +15,33 @@
     accordionFilter.classList.remove('accordion-filter--no-js');
   }
 
+  function trapFocus(element) {
+    var focusableEls = element.querySelectorAll('a[href]:not([disabled]), button:not([disabled]), textarea:not([disabled]), input[type="text"]:not([disabled]), input[type="radio"]:not([disabled]), input[type="checkbox"]:not([disabled]), select:not([disabled])');
+    var firstFocusableEl = focusableEls[0];
+    var lastFocusableEl = focusableEls[focusableEls.length - 1];
+    var KEYCODE_TAB = 9;
+
+    element.addEventListener('keydown', function(e) {
+      var isTabPressed = (e.key === 'Tab' || e.keyCode === KEYCODE_TAB);
+
+      if (!isTabPressed) {
+        return;
+      }
+
+      if ( e.shiftKey ) /* shift + tab */ {
+        if (document.activeElement === firstFocusableEl) {
+          lastFocusableEl.focus();
+            e.preventDefault();
+          }
+        } else /* tab */ {
+        if (document.activeElement === lastFocusableEl) {
+          firstFocusableEl.focus();
+            e.preventDefault();
+          }
+        }
+    });
+  }
+
   const hideList = (item, className) => {
     item.classList.remove(className);
   }
@@ -94,8 +121,9 @@
   const showFormLogin = (template) => {
     const btnFormClose = template.querySelector('.modal-login__button');
 
-    document.body.insertAdjacentElement('beforeend', template);
+    body.insertAdjacentElement('beforeend', template);
     setOverlayVisible(overlay);
+    trapFocus(template);
 
     let email = template.querySelector('#login-email-id');
     email.focus()
@@ -207,6 +235,7 @@
     filterClose.addEventListener('click', hideFilter)
     filterApply.addEventListener('click', hideFilter)
     filterOverlay.addEventListener('click', hideFilter)
+    trapFocus(filterContent);
 
     function hideFilter() {
       filterContent.classList.remove('filter-box__inner--show');

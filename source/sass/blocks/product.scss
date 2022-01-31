@@ -148,7 +148,8 @@
   }
 
   @media (max-width: $mobile-width) {
-    width: 320px;
+    // width: 320px;
+    width: 100%;
     margin-bottom: 10px;
   }
 }
@@ -165,7 +166,7 @@
   }
 
   @media (max-width: $mobile-width) {
-    width: calc(100% - 30px);
+    padding: 10px 46px 0 15px;
     margin-top: 30px;
   }
 }
@@ -188,12 +189,12 @@
   }
 
   @media (max-width: $tablet-width) {
-    min-width: 324px;
+    min-width: 50%;
     margin-right: 30px;
   }
 
   @media (max-width: $mobile-width) {
-    min-width: 130px;
+    min-width: 50%;
     min-height: 240px;
     justify-content: flex-start;
   }
