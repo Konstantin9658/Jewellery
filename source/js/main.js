@@ -224,6 +224,8 @@
         },
       },
     });
+    swiper.pagination.bullets[3].setAttribute('tabindex', '-1');
+    swiper.keyboard.disable();
   } else if (catalogPage) {
     const filterOpen = catalogPage.querySelector('.button--filter');
     const filterContent = catalogPage.querySelector('.filter-box__inner');
