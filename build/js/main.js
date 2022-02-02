@@ -7,6 +7,7 @@
   const accordionFilter = document.querySelector('.accordion-filter');
   const slider = document.querySelector('.product__container');
   const accordionTogglers = body.querySelectorAll('.accordion-toggler');
+  const KEYCODE_TAB = 9;
 
   if (!catalogPage) {
     accordionMain.classList.remove('accordion--no-js');
@@ -16,13 +17,12 @@
   }
 
   function trapFocus(element) {
-    var focusableEls = element.querySelectorAll('a[href]:not([disabled]), button:not([disabled]), textarea:not([disabled]), input[type="text"]:not([disabled]), input[type="radio"]:not([disabled]), input[type="checkbox"]:not([disabled]), select:not([disabled])');
-    var firstFocusableEl = focusableEls[0];
-    var lastFocusableEl = focusableEls[focusableEls.length - 1];
-    var KEYCODE_TAB = 9;
+    let focusableEls = element.querySelectorAll('a[href]:not([disabled]), button:not([disabled]), textarea:not([disabled]), input[type="text"]:not([disabled]), input[type="radio"]:not([disabled]), input[type="checkbox"]:not([disabled]), select:not([disabled])');
+    let firstFocusableEl = focusableEls[0];
+    let lastFocusableEl = focusableEls[focusableEls.length - 1];
 
     element.addEventListener('keydown', function(e) {
-      var isTabPressed = (e.key === 'Tab' || e.keyCode === KEYCODE_TAB);
+      let isTabPressed = (e.key === 'Tab' || e.keyCode === KEYCODE_TAB);
 
       if (!isTabPressed) {
         return;
@@ -175,6 +175,7 @@
     }
 
     // SLIDER
+    const TOTALSLIDE = 15;
 
     const swiper = new Swiper('.swiper', {
       slidesPerView: 2,
@@ -187,6 +188,10 @@
           return `<span class="${currentClass + ' ' + 'product__page-current'}"></span>of
                   <span class="${'product__page-total'}">6</span>`;
         },
+      },
+      keyboard: {
+        enabled: false,
+        onlyInViewport: false,
       },
       navigation: {
         nextEl: '.swiper-button-next',
@@ -210,7 +215,6 @@
         1024: {
           slidesPerView: 4,
           slidesPerGroup: 4,
-          simulateTouch: false,
           pagination: {
             el: '.swiper-pagination',
             clickable: true,
@@ -224,8 +228,31 @@
         },
       },
     });
+
+    function setTabIndex() {
+      swiper.slides[swiper.activeIndex].querySelector('a').setAttribute('tabindex', '0');
+      swiper.slides[swiper.activeIndex + 1].querySelector('a').setAttribute('tabindex', '0');
+      swiper.slides[swiper.activeIndex + 2].querySelector('a').setAttribute('tabindex', '0');
+      swiper.slides[swiper.activeIndex + 3].querySelector('a').setAttribute('tabindex', '0');
+    }
+
+    const swiperContainer = body.querySelector('.swiper-wrapper');
+    const swiperLinks = swiperContainer.querySelectorAll('a[href]');
+    for (let link of swiperLinks) {
+      link.setAttribute('tabindex', '-1')
+      setTabIndex()
+    }
+
+
+    swiper.on('activeIndexChange', function() {
+      for (let link of swiperLinks) {
+        link.setAttribute('tabindex', '-1')
+      }
+
+      setTabIndex()
+    })
+
     swiper.pagination.bullets[3].setAttribute('tabindex', '-1');
-    swiper.keyboard.disable();
   } else if (catalogPage) {
     const filterOpen = catalogPage.querySelector('.button--filter');
     const filterContent = catalogPage.querySelector('.filter-box__inner');
