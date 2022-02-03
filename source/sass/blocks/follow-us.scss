@@ -56,6 +56,8 @@
   width: 100%;
 
   @media (max-width: $tablet-width) {
+    transition: $trans--300;
+    width: 678px;
     row-gap: 20px;
     column-gap: 16px;
     min-height: 240px;
@@ -63,6 +65,8 @@
   }
 
   @media (max-width: $mobile-width) {
+    transition: $trans--300;
+    width: 290px;
     grid-template-columns: repeat(2, 1fr);
     grid-template-rows: repeat(3, auto);
     row-gap: 27px;
