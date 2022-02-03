@@ -239,17 +239,17 @@
     const swiperContainer = body.querySelector('.swiper-wrapper');
     const swiperLinks = swiperContainer.querySelectorAll('a[href]');
     for (let link of swiperLinks) {
-      link.setAttribute('tabindex', '-1')
-      setTabIndex()
+      link.setAttribute('tabindex', '-1');
+      setTabIndex();
     }
 
 
     swiper.on('activeIndexChange', function() {
       for (let link of swiperLinks) {
-        link.setAttribute('tabindex', '-1')
+        link.setAttribute('tabindex', '-1');
       }
 
-      setTabIndex()
+      setTabIndex();
     })
 
     swiper.pagination.bullets[3].setAttribute('tabindex', '-1');
@@ -260,10 +260,10 @@
     const filterApply = filterContent.querySelector('.button--apply');
     const filterOverlay = catalogPage.querySelector('.filter-box__overlay');
 
-    filterOpen.addEventListener('click', showFilter)
-    filterClose.addEventListener('click', hideFilter)
-    filterApply.addEventListener('click', hideFilter)
-    filterOverlay.addEventListener('click', hideFilter)
+    filterOpen.addEventListener('click', showFilter);
+    filterClose.addEventListener('click', hideFilter);
+    filterApply.addEventListener('click', hideFilter);
+    filterOverlay.addEventListener('click', hideFilter);
     trapFocus(filterContent);
 
     function hideFilter() {
